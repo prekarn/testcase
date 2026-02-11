@@ -88,13 +88,7 @@ const App = () => {
                   minLength={6}
                   required
                   pattern={form_Data.pass}
-                  isInvalid={
-                    validated && form_Data.confimPass !== form_Data.pass
-                  }
                 />
-                <Form.Control.Feedback type="invalid">
-                  Passwords do not match.
-                </Form.Control.Feedback>
               </Form.Group>
               <Form.Group controlId="email">
                 <Form.Label>Email</Form.Label>
@@ -121,7 +115,7 @@ const App = () => {
                   onChange={chngFn}
                   pattern="^\d{10}$"
                   required
-                  isInvalid={validated && !/^\d{10}$/.test(form_Data.phoneNo)}
+                  isInvalid={validated && !/^\d{15}$/.test(form_Data.phoneNo)}
                 />
                 <Form.Control.Feedback type="invalid">
                   Please enter a valid 10-digit phone number.

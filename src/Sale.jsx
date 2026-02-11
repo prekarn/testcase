@@ -11,16 +11,21 @@ export default function App() {
 
   // ฟังก์ชันคำนวณ %
   const getPercent = (type, price) => {
+    let ck;
+
     if (!price || price <= 0) return 0;
 
-    if (type === "normal") setPoint(price / 100);
-    else if (type === "silver") setPoint((price / 100) * 1.5);
-    else setPoint((price / 100) * 2);
+    if (type === "normal") ck = price / 100;
+    else if (type === "silver") ck = (price / 100) * 1.5;
+    else ck = (price / 100) * 2;
+
+    if (ck > 100) setPoint(100);
+    else setPoint(ck);
 
     const rules = {
       normal: [2, 3, 4],
-      silver: [3, 5, 6],
-      gold: [5, 7, 10],
+      silver: [3, 5, 5],
+      gold: [5, 8, 10],
     };
 
     if (price <= 500) return rules[type][0];
